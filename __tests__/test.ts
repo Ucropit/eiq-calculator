@@ -8,12 +8,12 @@ describe('calculate eiq on activity', () => {
     const data = [
       {
         total: 100,
-        realizedSurface: 200,
+        plannedArea: 200,
         eiq: 3.83425,
       },
       {
         total: 50,
-        realizedSurface: 200,
+        plannedArea: 200,
         eiq: 1.58267,
       },
     ];
@@ -29,12 +29,12 @@ describe('calculate eiq on achievement', () => {
     const data = [
       {
         total: 135,
-        realizedSurface: 100,
+        plannedArea: 100,
         eiq: 3.834,
       },
       {
         total: 75,
-        realizedSurface: 100,
+        plannedArea: 100,
         eiq: 1.583,
       },
     ];
@@ -50,12 +50,12 @@ describe('calculate eiq on lot', () => {
     const data = [
       {
         total: 135,
-        realizedSurface: 200,
+        plannedArea: 200,
         eiq: 3.834,
       },
       {
         total: 75,
-        realizedSurface: 200,
+        plannedArea: 200,
         eiq: 1.583,
       },
     ];
