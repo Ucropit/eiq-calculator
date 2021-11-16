@@ -1,0 +1,50 @@
+{
+  "name": "@ucropit/eiq-calculator",
+  "version": "1.0.0",
+  "description": "package for calculating the eiq of the inputs applied in ucropit cultivation",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "prettify": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest --config jestconfig.json",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
+    "preversion" : "npm run lint",
+    "version" : "npm run prettify && git add -A src",
+    "postversion" : "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ucropit/eiq-calculator.git"
+  },
+  "keywords": [
+    "eiq",
+    "calculator"
+  ],
+  "author": "Arquimedes Rodriguez",
+  "authors": ["Arquimedes Rodriguez"],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ucropit/eiq-calculator/issues"
+  },
+  "homepage": "https://github.com/Ucropit/eiq-calculator#readme",
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "jest": "^27.3.1",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.0.7",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.4.4"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettify",
+      "pre-push": "npm run lint"
+    }
+  }
+}
