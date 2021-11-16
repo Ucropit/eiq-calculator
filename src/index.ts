@@ -3,7 +3,6 @@
  * @description function that receives two parameters as an argument and returns its product
  * @param a factor a
  * @param b factor b
- * @returns 
+ * @returns
  */
-export const Multiply = (a:number, b:number) => a * b;
-
+export const Multiply = (a: number, b: number) => a * b;
