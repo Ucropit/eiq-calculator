@@ -17,8 +17,32 @@ const eiqCalculator = require('@ucropit/eiq-calculator');
 
 // Using ES6 imports
 import * as eiqCalculator from '@ucropit/eiq-calculator';
+// Or
+import { CalculationForCropEiq } from '@ucropit/eiq-calculator';
 ```
 
+### Calculation For Crop Eiq
+
+Calculate the `Eiq` applied to a Crop` according to its total surface
+
+```js
+import { CalculationForCropEiq } from '@ucropit/eiq-calculator';
+const surface = 500
+const supplies = [{
+    eiq: Number(2.01924999975 + 1.81499999985),
+    total: 135
+},{
+    eiq: Number(1.5826666668),
+    total: 75
+},{
+    eiq: Number(2.01924999975 + 1.81499999985),
+    total: 55
+},{
+    eiq: Number(1.5826666668),
+    total: 25
+}]
+const totalEiq: number = CalculationForCropEiq(surface, supplies)
+```
 ## License
 MIT License
 

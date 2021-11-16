@@ -1,15 +1,5 @@
 
-// UTILS
-export const Reduce = (current: number, value: number): number => current + value
-
-const isInvalidDenominator = (denominator: number): boolean => [NaN, 0].includes(Number(denominator))
-
-const Divide = (numerator: number, denominator: number): number => {
-    if( isInvalidDenominator(denominator)) throw new Error('the value of the numerator in a division must be greater than or equal to 0')
-    return numerator / denominator
-}
-
-// INTERFACE
+import {Divide, Reduce} from "./utils";
 interface ISupplyDTO {
     eiq: number
     total: number
