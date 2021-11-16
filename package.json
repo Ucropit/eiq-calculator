@@ -4,7 +4,7 @@
   "description": "package for calculating the eiq of the inputs applied in ucropit cultivation",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npx tsc",
     "prettify": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "test": "jest --config jestconfig.json",
