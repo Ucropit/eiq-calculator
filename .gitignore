@@ -110,3 +110,4 @@ dist
 #Dir Mac
 .DS_STORE
 /lib
+package-lock.json

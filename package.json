@@ -33,6 +33,7 @@
   "homepage": "https://github.com/Ucropit/eiq-calculator#readme",
   "devDependencies": {
     "@types/jest": "^27.0.2",
+    "git-commit-msg-linter": "^3.2.8",
     "husky": "^7.0.4",
     "jest": "^27.3.1",
     "prettier": "^2.4.1",
