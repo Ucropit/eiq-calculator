@@ -8,11 +8,11 @@
     "prettify": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "test": "jest --config jestconfig.json",
-    "prepare" : "npm run build",
-    "prepublishOnly" : "npm test && npm run lint",
-    "preversion" : "npm run lint",
-    "version" : "npm run prettify && git add -A src",
-    "postversion" : "git push && git push --tags"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run prettify && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,9 @@
     "calculator"
   ],
   "author": "Arquimedes Rodriguez",
-  "authors": ["Arquimedes Rodriguez"],
+  "authors": [
+    "Arquimedes Rodriguez"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Ucropit/eiq-calculator/issues"
@@ -31,6 +33,7 @@
   "homepage": "https://github.com/Ucropit/eiq-calculator#readme",
   "devDependencies": {
     "@types/jest": "^27.0.2",
+    "husky": "^7.0.4",
     "jest": "^27.3.1",
     "prettier": "^2.4.1",
     "ts-jest": "^27.0.7",
