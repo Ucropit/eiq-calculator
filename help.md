@@ -1,4 +1,9 @@
 ## Instructions for publishing package in npm
+## Develoment
+```sh
+npm run watch
+```
+
 * Check which account you have logged in -
 ```sh
 npm whoami
