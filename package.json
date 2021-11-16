@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "package for calculating the eiq of the inputs applied in ucropit cultivation",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "npx tsc",
     "prettify": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
