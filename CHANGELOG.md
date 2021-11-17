@@ -1,5 +1,10 @@
 
 
+1.0.5 / 2021-11-17
+==================
+* export interface IEiqListDTO
+* Fix description
+
 1.0.4 / 2021-11-17
 ==================
 * method to validate input data
