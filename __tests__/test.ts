@@ -1,4 +1,4 @@
-import {CalculateEiq, CalculationForCropEiq} from '../src/index';
+import {CalculateEiq, CalculationForCropEiq} from '../src';
 
 test('Test', () => {
   expect(true).toBe(true);
