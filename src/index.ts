@@ -1,55 +1,46 @@
-interface IDataDTO {
-  surface?: number;
-  plannedArea: number;
-  total: number;
-  eiq: number;
+
+import {divide, multiply, parseDecimals, sum} from "./utils";
+interface IEiqListDTO {
+    eiq: number
+    total: number
 }
-
 /**
- * @function Multiply
+ * @function calculateDosage
  * @description function that receives two parameters as an argument and returns its product
- * @param a factor a
- * @param b factor b
- * @returns
+ * @param total Total used for the selected area
+ * @param surface net area to which the eiq dose is applied
+ * @param [decimal] number to fixed final result
+ * @return value
  */
-export const Multiply = (a: number, b: number) => a * b;
+
+export const calculateDosage = (total: number, surface: number, decimal?: number): number => divide(total, surface)
 
 /**
- * @function SumEiq
- * @description sum eiq use with reduce
- * @param current current eiq value
- * @param value next eiq value
- * @returns number
+ * @function factorEiqDosageProduct
+ * @description function that receives two parameters as an argument and returns its product
+ * @param eiq Product eiq
+ * @param quantity total eiq used in a given area. Result obtained with CalculateDosage
+ * @return value
  */
-const SumEiq = (current: number, value: number): number => current + value;
+export const factorEiqDosageProduct = (eiq: number, quantity: number) => multiply(eiq, quantity)
 
 /**
- * @function CalculateQuantity
- * @description calculate product quantity applied
- * @param total total planned
- * @param plannedArea
- * @returns
+ * @function calculateEiq
+ * @description function that receives two parameters as an argument and returns its product
+ * @param surface net area to which the eiq dose is applied
+ * @param eiq Product eiq
+ * @param total Total used for the selected area
+ * @param [decimal] number to fixed final result
+ * @return value
  */
-export const CalculateQuantity = (total: number, plannedArea: number): number => total / plannedArea;
+export const calculateEiq = (surface: number, eiq: number, total: number, decimal?: number) => parseDecimals(factorEiqDosageProduct(eiq, calculateDosage(total, surface)), decimal)
 
 /**
- * @function CalculateEiq
- * @description calculate eiq for a product and planned area
- * @param data
- * @returns
+ * @function calculateEiqWithList
+ * @description function that receives two parameters as an argument and returns its product
+ * @param surface Total cultivation area
+ * @param eiqList Arrangement of inputs applied to the crop
+ * @param [decimal] number to fixed final result
+ * @return value
  */
-export const CalculateEiq = (data: IDataDTO) => {
-  const { eiq, total, plannedArea } = data;
-  const quantity = CalculateQuantity(total, plannedArea);
-  return quantity * eiq;
-};
-
-/**
- * @function CalculateEiqInList
- * @description Calculates Eiq for multiple data products and planned areas
- * @param data
- * @param fixedData number to fixed final result
- * @returns
- */
-export const CalculateEiqInList = (data: IDataDTO[], fixedData: number): number =>
-  parseFloat(data.map(CalculateEiq).reduce(SumEiq).toFixed(fixedData));
+export const calculateEiqWithList = (surface: number, eiqList: IEiqListDTO[], decimal?: number) => parseDecimals(eiqList.map(({eiq, total})=> calculateEiq(surface, eiq, total)).reduce(sum), decimal)

@@ -17,28 +17,77 @@ const eiqCalculator = require('@ucropit/eiq-calculator');
 
 // Using ES6 imports
 import * as eiqCalculator from '@ucropit/eiq-calculator';
+// Or
+import { calculateDosage, factorEiqDosageProduct, calculateEiq, calculateEiqWithList } from '@ucropit/eiq-calculator';
 ```
 
+### Calculate Dosage
+
+```js
+import { calculateDosage } from '@ucropit/eiq-calculator';
+const surface = 500
+const total = 135
+
+const quantity: number = calculateDosage(total, surface)
+// With rounding
+//const quantity: number = calculateDosage(total, surface, 2)
+```
+
+### Factor Eiq Dosage Product
+
+```js
+import { calculateDosage, factorEiqDosageProduct } from '@ucropit/eiq-calculator';
+const surface = 500
+const eiq = 3.834
+const total = 135
+
+const quantity: number = calculateDosage(total, surface)
+const factorEiq: number = factorEiqDosageProduct(eiq, quantity)
+
+```
+
+### Calculation For Crop Eiq
+
+Calculate the `Eiq` applied to a Crop` according to its total surface
+
+```js
+import { calculateEiq, calculateEiqWithList } from '@ucropit/eiq-calculator';
+const surface = 500
+const eiqList = [{
+    eiq: 3.834,
+    total: 135
+},{
+    eiq: 1.583,
+    total: 75
+},{
+    eiq: 3.834,
+    total: 55
+},{
+    eiq: 1.583,
+    total: 25
+}]
+const eiq1: number = calculateEiq(surface, eiqList[0].eiq, eiqList[0].total)
+const totalEiq: number = calculateEiqWithList(surface, eiqList, 2)
+```
 ### Calculation By Activities, Achievement or Lot
 
 Calculate the `Eiq` applied to an Activity, Achievement or Lot` according to its total surface
 
 ```js
-import { CalculateEiqInList } from '@ucropit/eiq-calculator';
+import { calculateEiqWithList } from '@ucropit/eiq-calculator';
+const surface = 200
 const toFixedResult = 2
 const activityData = [
     {
     total: 100,
-    plannedArea: 200,
     eiq: 3.83425,
     },
     {
     total: 50,
-    plannedArea: 200,
     eiq: 1.58267,
     },
 ];
-const totalEiq: number = CalculateEiqInList(activityData, toFixedResult)
+const totalEiq: number = calculateEiqWithList(surface, activityData, toFixedResult)
 ```
 
 ## License
