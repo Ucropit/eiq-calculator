@@ -1,6 +1,6 @@
 
 import {divide, multiply, parseDecimals, sum, validator} from "./utils";
-interface IEiqListDTO {
+export interface IEiqListDTO {
     eiq: number
     total: number
 }
