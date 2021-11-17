@@ -4,10 +4,10 @@
 export const validator = (values: any) => {
     Object.keys(values).map((key)=>{
         // @ts-ignore
-        if(!isNumber(values[key])){
-            throw new Error(`The value of the ${key} must be numeric`)
+        if(isNumber(values[key])){
+            return key
         }
-        return key
+        throw new Error(`The value of the ${key} must be numeric`)
     })
 }
 
@@ -15,7 +15,7 @@ export const multiply = (a: number, b: number): number => a * b
 
 export const sum = (current: number, value: number): number => current + value
 
-export const isNumber = (value: number): boolean => Number(value) !== NaN
+export const isNumber = (value: number): boolean => !isNaN(Number(value))
 export const isInvalidDenominator = (denominator: number): boolean => [NaN, 0].includes(Number(denominator))
 
 export const divide = (numerator: number, denominator: number): number => {
