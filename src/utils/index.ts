@@ -2,12 +2,10 @@
 
 
 export const validator = (values: any) => {
-    Object.keys(values).map((key)=>{
-        // @ts-ignore
-        if(isNumber(values[key])){
-            return key
+    Object.keys(values).forEach((key)=>{
+        if(!isNumber(values[key])){
+            throw new Error(`The value of the ${key} must be numeric`)
         }
-        throw new Error(`The value of the ${key} must be numeric`)
     })
 }
 
