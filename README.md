@@ -19,6 +19,28 @@ const eiqCalculator = require('@ucropit/eiq-calculator');
 import * as eiqCalculator from '@ucropit/eiq-calculator';
 ```
 
+### Calculation By Activities, Achievement or Lot
+
+Calculate the `Eiq` applied to an Activity, Achievement or Lot` according to its total surface
+
+```js
+import { CalculateEiqInList } from '@ucropit/eiq-calculator';
+const toFixedResult = 2
+const activityData = [
+    {
+    total: 100,
+    plannedArea: 200,
+    eiq: 3.83425,
+    },
+    {
+    total: 50,
+    plannedArea: 200,
+    eiq: 1.58267,
+    },
+];
+const totalEiq: number = CalculateEiqInList(activityData, toFixedResult)
+```
+
 ## License
 MIT License
 
