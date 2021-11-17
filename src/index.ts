@@ -1,5 +1,5 @@
 
-import {divide, multiply, parseDecimals, sum} from "./utils";
+import {divide, multiply, parseDecimals, sum, validator} from "./utils";
 interface IEiqListDTO {
     eiq: number
     total: number
@@ -13,7 +13,10 @@ interface IEiqListDTO {
  * @return value
  */
 
-export const calculateDosage = (total: number, surface: number, decimal?: number): number => divide(total, surface)
+export const calculateDosage = (total: number, surface: number): number => {
+    validator({total, surface})
+    return divide(total, surface)
+}
 
 /**
  * @function factorEiqDosageProduct
@@ -22,7 +25,10 @@ export const calculateDosage = (total: number, surface: number, decimal?: number
  * @param quantity total eiq used in a given area. Result obtained with CalculateDosage
  * @return value
  */
-export const factorEiqDosageProduct = (eiq: number, quantity: number) => multiply(eiq, quantity)
+export const factorEiqDosageProduct = (eiq: number, quantity: number): number => {
+    validator({eiq, quantity})
+    return multiply(eiq, quantity)
+}
 
 /**
  * @function calculateEiq
@@ -33,7 +39,10 @@ export const factorEiqDosageProduct = (eiq: number, quantity: number) => multipl
  * @param [decimal] number to fixed final result
  * @return value
  */
-export const calculateEiq = (surface: number, eiq: number, total: number, decimal?: number) => parseDecimals(factorEiqDosageProduct(eiq, calculateDosage(total, surface)), decimal)
+export const calculateEiq = (surface: number, eiq: number, total: number, decimal?: number): number => {
+    validator({surface, eiq, total})
+    return parseDecimals(factorEiqDosageProduct(eiq, calculateDosage(total, surface)), decimal)
+}
 
 /**
  * @function calculateEiqWithList

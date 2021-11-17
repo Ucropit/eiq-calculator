@@ -1,6 +1,6 @@
 {
   "name": "@ucropit/eiq-calculator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "package for calculating the eiq of the inputs applied in ucropit cultivation",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

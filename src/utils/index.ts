@@ -1,10 +1,21 @@
 // UTILS
 
 
+export const validator = (values: any) => {
+    Object.keys(values).map((key)=>{
+        // @ts-ignore
+        if(!isNumber(values[key])){
+            throw new Error(`The value of the ${key} must be numeric`)
+        }
+        return key
+    })
+}
+
 export const multiply = (a: number, b: number): number => a * b
 
 export const sum = (current: number, value: number): number => current + value
 
+export const isNumber = (value: number): boolean => Number(value) !== NaN
 export const isInvalidDenominator = (denominator: number): boolean => [NaN, 0].includes(Number(denominator))
 
 export const divide = (numerator: number, denominator: number): number => {
@@ -14,6 +25,9 @@ export const divide = (numerator: number, denominator: number): number => {
 
 export const parseDecimals = (value: number, decimal?: number): number => {
     if(decimal){
+        if(!isNumber(decimal)){
+            throw new Error('The value of the decimal must be numeric')
+        }
         return parseFloat(value.toFixed(decimal));
     }
     return value
