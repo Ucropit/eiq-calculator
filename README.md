@@ -1,4 +1,4 @@
-# Eiq Calculator
+# EIQ Calculator
 package for calculating the eiq of the inputs applied in ucropit cultivation
 
 ## Installation
@@ -33,7 +33,7 @@ const quantity: number = calculateDosage(total, surface)
 //const quantity: number = calculateDosage(total, surface, 2)
 ```
 
-### Factor Eiq Dosage Product
+### Factor EIQ Dosage Product
 
 ```js
 import { calculateDosage, factorEiqDosageProduct } from '@ucropit/eiq-calculator';
@@ -46,7 +46,7 @@ const factorEiq: number = factorEiqDosageProduct(eiq, quantity)
 
 ```
 
-### Calculation For Crop Eiq
+### Calculation For Crop EIQ
 
 Calculate the `Eiq` applied to a Crop` according to its total surface
 
@@ -71,7 +71,7 @@ const totalEiq: number = calculateEiqWithList(surface, eiqList, 2)
 ```
 ### Calculation By Activities, Achievement or Lot
 
-Calculate the `Eiq` applied to an Activity, Achievement or Lot` according to its total surface
+Calculate the `EIQ` applied to an Activity, Achievement or Lot` according to its total surface
 
 ```js
 import { calculateEiqWithList } from '@ucropit/eiq-calculator';
@@ -89,7 +89,17 @@ const activityData = [
 ];
 const totalEiq: number = calculateEiqWithList(surface, activityData, toFixedResult)
 ```
+### Get EIQ description range
 
+GET the `EIQ` description range
+
+```js
+import { getEiqRange } from '@ucropit/eiq-calculator';
+const eiq = 15.2
+const minRange = 0
+const maxRange = 50
+const rangeDescription: string = getEiqRange(eiq, minRange, maxRange)
+```
 ## License
 MIT License
 
