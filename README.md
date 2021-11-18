@@ -1,4 +1,4 @@
-# Eiq Calculator
+# EIQ Calculator
 package for calculating the eiq of the inputs applied in ucropit cultivation
 
 ## Installation
@@ -18,7 +18,7 @@ const eiqCalculator = require('@ucropit/eiq-calculator');
 // Using ES6 imports
 import * as eiqCalculator from '@ucropit/eiq-calculator';
 // Or
-import { calculateDosage, factorEiqDosageProduct, calculateEiq, calculateEiqWithList } from '@ucropit/eiq-calculator';
+import { calculateDosage, factorEIQDosageProduct, calculateEIQ, calculateEiqWithList } from '@ucropit/eiq-calculator';
 ```
 
 ### Calculate Dosage
@@ -33,25 +33,25 @@ const quantity: number = calculateDosage(total, surface)
 //const quantity: number = calculateDosage(total, surface, 2)
 ```
 
-### Factor Eiq Dosage Product
+### Factor EIQ Dosage Product
 
 ```js
-import { calculateDosage, factorEiqDosageProduct } from '@ucropit/eiq-calculator';
+import { calculateDosage, factorEIQDosageProduct } from '@ucropit/eiq-calculator';
 const surface = 500
 const eiq = 3.834
 const total = 135
 
 const quantity: number = calculateDosage(total, surface)
-const factorEiq: number = factorEiqDosageProduct(eiq, quantity)
+const factorEiq: number = factorEIQDosageProduct(eiq, quantity)
 
 ```
 
-### Calculation For Crop Eiq
+### Calculation For Crop EIQ
 
 Calculate the `Eiq` applied to a Crop` according to its total surface
 
 ```js
-import { calculateEiq, calculateEiqWithList } from '@ucropit/eiq-calculator';
+import { calculateEIQ, calculateEIQWithList } from '@ucropit/eiq-calculator';
 const surface = 500
 const eiqList = [{
     eiq: 3.834,
@@ -66,15 +66,15 @@ const eiqList = [{
     eiq: 1.583,
     total: 25
 }]
-const eiq1: number = calculateEiq(surface, eiqList[0].eiq, eiqList[0].total)
-const totalEiq: number = calculateEiqWithList(surface, eiqList, 2)
+const eiq1: number = calculateEIQ(surface, eiqList[0].eiq, eiqList[0].total)
+const totalEiq: number = calculateEIQWithList(surface, eiqList, 2)
 ```
 ### Calculation By Activities, Achievement or Lot
 
-Calculate the `Eiq` applied to an Activity, Achievement or Lot` according to its total surface
+Calculate the `EIQ` applied to an Activity, Achievement or Lot` according to its total surface
 
 ```js
-import { calculateEiqWithList } from '@ucropit/eiq-calculator';
+import { calculateEIQWithList } from '@ucropit/eiq-calculator';
 const surface = 200
 const toFixedResult = 2
 const activityData = [
@@ -87,9 +87,17 @@ const activityData = [
     eiq: 1.58267,
     },
 ];
-const totalEiq: number = calculateEiqWithList(surface, activityData, toFixedResult)
+const totalEiq: number = calculateEIQWithList(surface, activityData, toFixedResult)
 ```
+### Get EIQ description range
 
+GET the `EIQ` description range
+
+```js
+import { getEIQRange } from '@ucropit/eiq-calculator';
+const eiq = 15.2
+const rangeDescription: string = getEIQRange(eiq)
+```
 ## License
 MIT License
 
