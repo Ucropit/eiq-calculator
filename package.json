@@ -1,7 +1,7 @@
 {
   "name": "@ucropit/eiq-calculator",
   "version": "1.0.6",
-  "description": "package for calculating the eiq of the inputs applied in ucropit Crop",
+  "description": "Package for calculating the eiq of the inputs applied in ucropit Crop",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
