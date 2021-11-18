@@ -1,5 +1,6 @@
 import { isNumber, isInRange } from './utils';
-export enum EiqRanges {
+
+export enum ERangesEiq {
   VERY_HIGH = 'VERY_HIGH',
   HIGH = 'HIGH',
   MODERATE = 'MODERATE',
@@ -13,31 +14,31 @@ export enum EiqRanges {
  * @param {Number} eiq
  * @returns range
  */
-export const getEiqRange = (eiq: number): string => {
+export const getEIQRange = (eiq: number): string => {
   if (!isNumber(eiq)) {
     throw new Error('The value of the EIQ must be numeric');
   }
 
-  let rangeDescription = EiqRanges.VERY_HIGH;
+  let rangeDescription = ERangesEiq.VERY_HIGH;
 
   if (isInRange(eiq, 0, 25)) {
-    rangeDescription = EiqRanges.VERY_LOW;
+    rangeDescription = ERangesEiq.VERY_LOW;
   }
 
   if (isInRange(eiq, 25, 50)) {
-    rangeDescription = EiqRanges.LOW;
+    rangeDescription = ERangesEiq.LOW;
   }
 
   if (isInRange(eiq, 50, 100)) {
-    rangeDescription = EiqRanges.MODERATE;
+    rangeDescription = ERangesEiq.MODERATE;
   }
 
   if (isInRange(eiq, 100, 150)) {
-    rangeDescription = EiqRanges.HIGH;
+    rangeDescription = ERangesEiq.HIGH;
   }
 
   if (isInRange(eiq, 150, 200)) {
-    rangeDescription = EiqRanges.VERY_HIGH;
+    rangeDescription = ERangesEiq.VERY_HIGH;
   }
 
   return rangeDescription;

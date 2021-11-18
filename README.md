@@ -94,11 +94,9 @@ const totalEiq: number = calculateEiqWithList(surface, activityData, toFixedResu
 GET the `EIQ` description range
 
 ```js
-import { getEiqRange } from '@ucropit/eiq-calculator';
+import { getEIQRange } from '@ucropit/eiq-calculator';
 const eiq = 15.2
-const minRange = 0
-const maxRange = 50
-const rangeDescription: string = getEiqRange(eiq, minRange, maxRange)
+const rangeDescription: string = getEIQRange(eiq)
 ```
 ## License
 MIT License

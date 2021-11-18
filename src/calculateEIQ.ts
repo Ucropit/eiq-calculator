@@ -24,7 +24,7 @@ export const calculateDosage = (total: number, surface: number): number => {
  * @param quantity total eiq used in a given area. Result obtained with CalculateDosage
  * @return value
  */
-export const factorEiqDosageProduct = (eiq: number, quantity: number): number => {
+export const factorEIQDosageProduct = (eiq: number, quantity: number): number => {
   validator({ eiq, quantity });
   return multiply(eiq, quantity);
 };
@@ -38,9 +38,9 @@ export const factorEiqDosageProduct = (eiq: number, quantity: number): number =>
  * @param [decimal] number to fixed final result
  * @return value
  */
-export const calculateEiq = (surface: number, eiq: number, total: number, decimal?: number): number => {
+export const calculateEIQ = (surface: number, eiq: number, total: number, decimal?: number): number => {
   validator({ surface, eiq, total });
-  return parseDecimals(factorEiqDosageProduct(eiq, calculateDosage(total, surface)), decimal);
+  return parseDecimals(factorEIQDosageProduct(eiq, calculateDosage(total, surface)), decimal);
 };
 
 /**
@@ -51,5 +51,5 @@ export const calculateEiq = (surface: number, eiq: number, total: number, decima
  * @param [decimal] number to fixed final result
  * @return value
  */
-export const calculateEiqWithList = (surface: number, eiqList: IEiqListDTO[], decimal?: number) =>
-  parseDecimals(eiqList.map(({ eiq, total }) => calculateEiq(surface, eiq, total)).reduce(sum), decimal);
+export const calculateEIQWithList = (surface: number, eiqList: IEiqListDTO[], decimal?: number) =>
+  parseDecimals(eiqList.map(({ eiq, total }) => calculateEIQ(surface, eiq, total)).reduce(sum), decimal);
