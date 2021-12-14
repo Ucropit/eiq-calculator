@@ -52,4 +52,4 @@ export const calculateEIQ = (surface: number, eiq: number, total: number, decima
  * @return value
  */
 export const calculateEIQWithList = (surface: number, eiqList: IEiqListDTO[], decimal?: number) =>
-  parseDecimals(eiqList.map(({ eiq, total }) => calculateEIQ(surface, eiq, total)).reduce(sum), decimal);
+  parseDecimals(eiqList.map(({ eiq, total }) => calculateEIQ(surface, eiq, total)).reduce(sum, 0), decimal);
