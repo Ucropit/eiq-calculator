@@ -1,4 +1,5 @@
 # EIQ Calculator
+
 Package for calculating the eiq of the inputs applied in ucropit Crop
 
 ## Installation
@@ -25,6 +26,7 @@ import { calculateDosage, factorEIQDosageProduct, calculateEIQ, calculateEiqWith
 
 ```js
 import { calculateDosage } from '@ucropit/eiq-calculator';
+
 const surface = 500
 const total = 135
 
@@ -37,8 +39,9 @@ const quantity: number = calculateDosage(total, surface)
 
 ```js
 import { calculateDosage, factorEIQDosageProduct } from '@ucropit/eiq-calculator';
+
 const surface = 500
-const eiq = 3.834
+const eiq = 4.297
 const total = 135
 
 const quantity: number = calculateDosage(total, surface)
@@ -52,53 +55,85 @@ Calculate the `Eiq` applied to a Crop` according to its total surface
 
 ```js
 import { calculateEIQ, calculateEIQWithList } from '@ucropit/eiq-calculator';
+
 const surface = 500
 const eiqList = [{
-    eiq: 3.834,
-    total: 135
-},{
-    eiq: 1.583,
-    total: 75
-},{
-    eiq: 3.834,
-    total: 55
-},{
-    eiq: 1.583,
-    total: 25
+  eiq: 4.297,
+  total: 135,
+  unit: 'kg/ha'
+}, {
+  eiq: 1.774,
+  total: 75,
+  unit: 'lt/ha'
+}, {
+  eiq: 4.297,
+  total: 0.135,
+  unit: 'tn/ha'
+}, {
+  eiq: 1.774,
+  total: 25,
+  unit: 'kg/ha'
 }]
-const eiq1: number = calculateEIQ(surface, eiqList[0].eiq, eiqList[0].total)
+const eiq1: number = calculateEIQ(surface, eiqList[0].eiq, eiqList[0].total, eiqList[0].unit)
 const totalEiq: number = calculateEIQWithList(surface, eiqList, 2)
 ```
+
 ### Calculation By Activities, Achievement or Lot
 
 Calculate the `EIQ` applied to an Activity, Achievement or Lot` according to its total surface
 
 ```js
 import { calculateEIQWithList } from '@ucropit/eiq-calculator';
+
 const surface = 200
 const toFixedResult = 2
 const activityData = [
-    {
+  {
     total: 100,
-    eiq: 3.83425,
-    },
-    {
+    eiq: 4.297,
+    unit: 'kg/ha'
+  },
+  {
     total: 50,
-    eiq: 1.58267,
-    },
+    eiq: 1.774,
+    unit: 'kg/ha'
+  },
 ];
 const totalEiq: number = calculateEIQWithList(surface, activityData, toFixedResult)
 ```
+
 ### Get EIQ description range
 
 GET the `EIQ` description range
 
 ```js
 import { getEIQRange } from '@ucropit/eiq-calculator';
+
 const eiq = 15.2
 const rangeDescription: string = getEIQRange(eiq)
 ```
+
+### List allowed units
+
+Function that returns a list of supported units
+
+```js
+import { getUnits } from '@ucropit/eiq-calculator';
+console.log(getUnits())
+// console.log
+//   [
+//     'kg', 'kg/ha', 
+//     'lt', 'lt/ha', 
+//     'gal', 'gal/ac', 
+//     'pt', 'pt/ac', 
+//     'tn', 'tn/ha', 
+//     't', 't/ac'
+//   ]
+```
+
+
 ## License
+
 MIT License
 
 Copyright (c) 2021 Ucropit
