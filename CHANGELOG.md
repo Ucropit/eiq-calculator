@@ -1,3 +1,7 @@
+2.0.1 / 2022-04-21
+==================
+* Support for imperial units (lb, oz, qt, fl-oz)
+
 2.0.0 / 2022-04-20
 ==================
 * The union was included as an argument in the calculation of the EIQ
