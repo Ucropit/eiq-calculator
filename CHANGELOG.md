@@ -1,3 +1,9 @@
+2.0.0 / 2022-04-20
+==================
+* The union was included as an argument in the calculation of the EIQ
+* A correction coefficient is applied according to units other than pounds and pints.
+* Added a method to list supported drives
+
 1.0.7 / 2021-12-13
 ==================
 * Fix passing initial value of reduce
