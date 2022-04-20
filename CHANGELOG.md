@@ -1,3 +1,7 @@
+1.0.7 / 2021-12-13
+==================
+* Fix passing initial value of reduce
+
 1.0.6 / 2021-11-18
 ==================
 * Feature get EIQ range for one EIQ

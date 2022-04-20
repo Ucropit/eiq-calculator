@@ -1,14 +1,15 @@
 import { divide, multiply, parseDecimals, sum, validator } from './utils';
+import { correctionFactorEiq } from "./managerUnits";
 export interface IEiqListDTO {
-  eiq: number;
-  total: number;
+  eiq: number
+  total: number
+  unit: string
 }
 /**
  * @function calculateDosage
  * @description function that receives total used area and surface and retrieve the dosage to use
  * @param total Total used for the selected area
  * @param surface net area to which the eiq dose is applied
- * @param [decimal] number to fixed final result
  * @return value
  */
 
@@ -35,12 +36,13 @@ export const factorEIQDosageProduct = (eiq: number, quantity: number): number =>
  * @param surface net area to which the eiq dose is applied
  * @param eiq Product eiq
  * @param total Total used for the selected area
+ * @param unit Unit in which the surface and the total applied of Eiq are expressed
  * @param [decimal] number to fixed final result
  * @return value
  */
-export const calculateEIQ = (surface: number, eiq: number, total: number, decimal?: number): number => {
+export const calculateEIQ = (surface: number, eiq: number, total: number, unit: string, decimal?: number): number => {
   validator({ surface, eiq, total });
-  return parseDecimals(factorEIQDosageProduct(eiq, calculateDosage(total, surface)), decimal);
+  return parseDecimals(factorEIQDosageProduct(correctionFactorEiq(eiq, unit), calculateDosage(total, surface)), decimal);
 };
 
 /**
@@ -52,4 +54,4 @@ export const calculateEIQ = (surface: number, eiq: number, total: number, decima
  * @return value
  */
 export const calculateEIQWithList = (surface: number, eiqList: IEiqListDTO[], decimal?: number) =>
-  parseDecimals(eiqList.map(({ eiq, total }) => calculateEIQ(surface, eiq, total)).reduce(sum), decimal);
+  parseDecimals(eiqList.map(({ eiq, total, unit }) => calculateEIQ(surface, eiq, total, unit)).reduce(sum, 0), decimal);
