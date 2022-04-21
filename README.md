@@ -128,6 +128,10 @@ console.log(getUnits())
 //     'pt', 'pt/ac', 
 //     'tn', 'tn/ha', 
 //     't', 't/ac'
+//     'lb', 'lb/ac'
+//     'qt', 'qt/ac',
+//     'oz', 'oz/ac',
+//     'fl-oz', 'fl-oz/ac'
 //   ]
 ```
 
