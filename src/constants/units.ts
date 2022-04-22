@@ -1,6 +1,6 @@
 // System Metric
-export const litersUnits = ['lt', 'lt/ha']
-export const kilogramsUnits = ['kg', 'kg/ha']
+export const litersUnits = ['lt', 'lt/ha', 'lts', 'lts/ha']
+export const kilogramsUnits = ['kg', 'kg/ha', 'kgs', 'kgs/ha']
 export const tonsUnits = ['tn', 'tn/ha']
 
 // System Imperial

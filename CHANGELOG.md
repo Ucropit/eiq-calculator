@@ -1,3 +1,7 @@
+2.0.2 / 2022-04-22
+==================
+* Support for metric units (kgs, lts)
+* 
 2.0.1 / 2022-04-21
 ==================
 * Support for imperial units (lb, oz, qt, fl-oz)
